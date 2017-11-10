@@ -21,6 +21,12 @@ namespace LiteDB
             _transactions.Push(locker);
         }
 
+
+        /// <summary>
+        /// Get transaction stack count. If returns 0, there is no transaction.
+        /// </summary>
+        internal int TransactionCount { get { return _transactions.Count; } }
+
         /// <summary>
         /// Persist in disk all changed from last BeginTrans()
         /// Returns true if real commit was done (false to nested commit only)

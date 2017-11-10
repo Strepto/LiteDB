@@ -30,7 +30,8 @@ namespace LiteDB
                     }
 
                     // copy all docs
-                    engine.Insert(collectionName, this.Find(collectionName, Query.All()));
+                    var docs = this.Find(collectionName, Query.All());
+                    engine.InsertBulk(collectionName, docs);
                 }
 
                 // copy user version
